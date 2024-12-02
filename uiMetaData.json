@@ -1,0 +1,39 @@
+{
+  "name": "Sample CRM",
+  "connectorType": "",
+  "userId": null,
+  "domoClientId": null,
+  "domoClientSecret": null,
+  "additionalInfo": "",
+  "reportLength": 1,
+  "days": 7,
+  "reports": [
+    "Opportunities"
+  ],
+  "advancedReports": null,
+  "guid": "7e5b2d7f-7ac4-4f0e-959a-f372950c91cb",
+  "publishPrivate": true,
+  "visibilityType": {
+    "label": "Private to your company",
+    "value": "private"
+  },
+  "parameters": [],
+  "commands": null,
+  "showAdvanced": true,
+  "submittedVersion": 0,
+  "submittedMajorVersion": 0,
+  "publishedVersion": 0,
+  "workbenchEnabled": false,
+  "dataProviderCreated": false,
+  "description": null,
+  "tags": null,
+  "successResponseDefinition": null,
+  "errorResponseDefinition": null,
+  "updateCode": false,
+  "requestingCustomerId": null,
+  "ownerId": null,
+  "ownerCustomerId": null,
+  "parentGuid": null,
+  "testingProfiles": null,
+  "visible": true
+}
