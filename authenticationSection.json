@@ -1,16 +1,16 @@
 {
   "type": "none",
-  "authCodeText": "DOMO.log('metadata.account.username: ' + metadata.account.username);\t//example\nDOMO.log('metadata.account.password: ' + metadata.account.password);  //test\n\nDOMO.log(DOMO.b64EncodeUnicode(metadata.account.username + ':' + metadata.account.password));\n\nhttprequest.addHeader('Authorization', 'Basic ' + DOMO.b64EncodeUnicode(metadata.account.username + ':' + metadata.account.password));\n\nvar res = httprequest.get('https://developer.domo.com/samplecrm');  \n\nDOMO.log('res: ' + res);\n\nif(res.indexOf('Account.Name') > 0){\n  auth.authenticationSuccess();\n}\nelse{\n  auth.authenticationFailed('Your username and password are incorrect');\n}",
-  "userName": "",
-  "password": "",
-  "apiKey": "",
-  "clientKey": "",
-  "clientSecret": "",
-  "authorizationURL": "",
-  "accessTokenURL": "",
+  "authCodeText": null,
+  "userName": null,
+  "password": null,
+  "apiKey": null,
+  "clientKey": null,
+  "clientSecret": null,
+  "authorizationURL": null,
+  "accessTokenURL": null,
   "oauthUserName": null,
   "oauthPassword": null,
-  "scope": "",
+  "scope": null,
   "customAccountFields": [
     {
       "label": null,
@@ -18,7 +18,7 @@
       "type": null
     }
   ],
-  "additionalParameters": "",
-  "tokenAddlParams": "",
+  "additionalParameters": null,
+  "tokenAddlParams": null,
   "accesstokenMethod": null
 }

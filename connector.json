@@ -1,19 +1,14 @@
 {
-  "images": [
-    "iconWithBackground",
-    "logoWithoutBackground",
-    "logoWithBackground",
-    "iconWithoutBackground"
-  ],
-  "name": "Sample CRM",
-  "connectorType": "",
+  "images": [],
+  "name": "hastest",
+  "connectorType": "apiAction",
   "type": "none",
-  "authCodeText": "DOMO.log('metadata.account.username: ' + metadata.account.username);\t//example\nDOMO.log('metadata.account.password: ' + metadata.account.password);  //test\n\nDOMO.log(DOMO.b64EncodeUnicode(metadata.account.username + ':' + metadata.account.password));\n\nhttprequest.addHeader('Authorization', 'Basic ' + DOMO.b64EncodeUnicode(metadata.account.username + ':' + metadata.account.password));\n\nvar res = httprequest.get('https://developer.domo.com/samplecrm');  \n\nDOMO.log('res: ' + res);\n\nif(res.indexOf('Account.Name') > 0){\n  auth.authenticationSuccess();\n}\nelse{\n  auth.authenticationFailed('Your username and password are incorrect');\n}",
-  "userName": "",
-  "password": "",
-  "apiKey": "",
-  "clientKey": "",
-  "clientSecret": "",
+  "authCodeText": null,
+  "userName": null,
+  "password": null,
+  "apiKey": null,
+  "clientKey": null,
+  "clientSecret": null,
   "userId": null,
   "customAccountFields": [
     {
@@ -24,30 +19,39 @@
   ],
   "domoClientId": null,
   "domoClientSecret": null,
-  "authorizationURL": "",
-  "accessTokenURL": "",
-  "scope": "",
-  "additionalParameters": "",
+  "authorizationURL": null,
+  "accessTokenURL": null,
+  "scope": null,
+  "additionalParameters": null,
   "oauthUserName": null,
   "oauthPassword": null,
-  "additionalInfo": "",
-  "reportLength": 1,
+  "additionalInfo": null,
+  "reportLength": 0,
   "days": 7,
-  "processData": "DOMO.log('metadata.account.username: ' + metadata.account.username);  //example\t\nDOMO.log('metadata.account.password: ' + metadata.account.password);  //test \nDOMO.log('metadata.report: ' + metadata.report); //Opportunities\n\nif(metadata.report == 'Opportunities'){\n\n\thttprequest.addHeader('Authorization', 'Basic ' + DOMO.b64EncodeUnicode(metadata.account.username + ':' + metadata.account.password));\n\n  //example of how to access \"Pull data from the last x day(s)\" value:\n\t//var res = httprequest.get('https://developer.domo.com/samplecrm?days=' + metadata.days);  \n\t\n\tvar res = httprequest.get('https://developer.domo.com/samplecrm');\n\t\n\tDOMO.log('res: ' + res);\n\n\tvar lines = res.split('\\r');\n\n\tvar header = lines[0].split(',');\n\t\n\t  //There are three data types: datagrid.DATA_TYPE_STRING, datagrid.DATA_TYPE_DOUBLE and datagrid.DATA_TYPE_DATETIME\n\t  // date format needs to be yyyy-MM-dd'T'HH:mm:ss\n\t\n\t  datagrid.addColumn('Account.Id', datagrid.DATA_TYPE_STRING);\n    datagrid.addColumn('Account.Industry', datagrid.DATA_TYPE_STRING);\n    datagrid.addColumn('Account.Name', datagrid.DATA_TYPE_STRING); \n    datagrid.addColumn('Amount', datagrid.DATA_TYPE_DOUBLE);\n    datagrid.addColumn('CloseDate', datagrid.DATA_TYPE_DATETIME);\n    datagrid.addColumn('CreatedDate', datagrid.DATA_TYPE_DATETIME);\n    datagrid.addColumn('Id', datagrid.DATA_TYPE_STRING);\n    datagrid.addColumn('IsClosed', datagrid.DATA_TYPE_STRING);\n    datagrid.addColumn('IsWon', datagrid.DATA_TYPE_STRING);\n    datagrid.addColumn('LastActivityDate', datagrid.DATA_TYPE_DATETIME);\n    datagrid.addColumn('LastModifiedDate', datagrid.DATA_TYPE_DATETIME);\n    datagrid.addColumn('LeadSource', datagrid.DATA_TYPE_STRING);\n    datagrid.addColumn('Name', datagrid.DATA_TYPE_STRING);\n    datagrid.addColumn('NextStep', datagrid.DATA_TYPE_STRING);\n    datagrid.addColumn('Probability', datagrid.DATA_TYPE_DOUBLE);\n    datagrid.addColumn('StageName', datagrid.DATA_TYPE_STRING);\n    datagrid.addColumn('Type', datagrid.DATA_TYPE_STRING);\n    datagrid.addColumn('ForecastCategoryName', datagrid.DATA_TYPE_STRING);\n    datagrid.addColumn('Strategic_Account__c', datagrid.DATA_TYPE_STRING);\n    datagrid.addColumn('Forecasted_ACV__c', datagrid.DATA_TYPE_DOUBLE);\n    datagrid.addColumn('Competitor__c', datagrid.DATA_TYPE_STRING);\n    datagrid.addColumn('Owner.CreatedDate', datagrid.DATA_TYPE_DATETIME);\n    datagrid.addColumn('Owner.Email', datagrid.DATA_TYPE_STRING);\n    datagrid.addColumn('Owner.FullPhotoUrl', datagrid.DATA_TYPE_STRING);\n    datagrid.addColumn('Owner.Id', datagrid.DATA_TYPE_STRING);\n    datagrid.addColumn('Owner.IsActive', datagrid.DATA_TYPE_STRING);\n    datagrid.addColumn('Owner.Manager', datagrid.DATA_TYPE_STRING);\n    datagrid.addColumn('Owner.Name', datagrid.DATA_TYPE_STRING);\n    datagrid.addColumn('Owner.UserRole.Name', datagrid.DATA_TYPE_STRING);\n    \n\n\tfor(var i = 1; i < lines.length; i++){\n\t\n    \tconsole.log('line: ' +  lines[i]); ///For heavy logging use browser console logging\n    \t\n    \tvar rows = lines[i].split(',');\n    \t\n    \tfor(var j = 0; j < rows.length; j++){\n    \t  \n    \t  if(j == 4){\n    \t    datagrid.addCell(rows[j] + 'T00:00:00');\n    \t  }\n    \t  else if(j == 9){\n    \t    datagrid.addCell(rows[j] + 'T00:00:00');\n    \t  }\n    \t  else{\n    \t    datagrid.addCell(rows[j]);\n    \t  }\n    \t  \n    \t}\n    \t\n    \tdatagrid.endRow();\n    \n\t}\n\n} else {\n  \n  DOMO.log(metadata.report + ' is not a supported report.');\n  datagrid.error(0, metadata.report + ' is not a supported report.');\n  \n}\n",
-  "reports": [
-    "Opportunities"
-  ],
+  "processData": null,
+  "reports": null,
   "advancedReports": null,
-  "guid": "7e5b2d7f-7ac4-4f0e-959a-f372950c91cb",
-  "authorName": "Domo, Inc.",
+  "guid": "4cf40452-c474-4d4b-8dc4-ac4ed66ee840",
+  "authorName": "test",
   "accesstokenMethod": null,
-  "tokenAddlParams": "",
+  "tokenAddlParams": null,
   "publishPrivate": true,
-  "visibilityType": {
-    "label": "Private to your company",
-    "value": "private"
-  },
-  "parameters": [],
+  "visibilityType": null,
+  "parameters": [
+    {
+      "name": "queriedDatasetId",
+      "type": "string",
+      "required": true,
+      "order": null,
+      "options": null,
+      "command": null,
+      "helpText": "The ID of the dataset in Domo you want to export data from",
+      "showWhen": null,
+      "value": null,
+      "dateSelectorValue": null,
+      "$$hashKey": "object:590"
+    }
+  ],
   "commands": null,
   "showAdvanced": true,
   "submittedVersion": 0,
@@ -74,10 +78,5 @@
   "stakeholders": null,
   "repository": null,
   "visible": true,
-  "validImages": [
-    "iconWithBackground",
-    "logoWithBackground",
-    "iconWithoutBackground",
-    "logoWithoutBackground"
-  ]
+  "validImages": []
 }

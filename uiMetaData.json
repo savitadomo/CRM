@@ -1,23 +1,32 @@
 {
-  "name": "Sample CRM",
-  "connectorType": "",
+  "name": "hastest",
+  "connectorType": "apiAction",
   "userId": null,
   "domoClientId": null,
   "domoClientSecret": null,
-  "additionalInfo": "",
-  "reportLength": 1,
+  "additionalInfo": null,
+  "reportLength": 0,
   "days": 7,
-  "reports": [
-    "Opportunities"
-  ],
+  "reports": null,
   "advancedReports": null,
-  "guid": "7e5b2d7f-7ac4-4f0e-959a-f372950c91cb",
+  "guid": "4cf40452-c474-4d4b-8dc4-ac4ed66ee840",
   "publishPrivate": true,
-  "visibilityType": {
-    "label": "Private to your company",
-    "value": "private"
-  },
-  "parameters": [],
+  "visibilityType": null,
+  "parameters": [
+    {
+      "name": "queriedDatasetId",
+      "type": "string",
+      "required": true,
+      "order": null,
+      "options": null,
+      "command": null,
+      "helpText": "The ID of the dataset in Domo you want to export data from",
+      "showWhen": null,
+      "value": null,
+      "dateSelectorValue": null,
+      "$$hashKey": "object:590"
+    }
+  ],
   "commands": null,
   "showAdvanced": true,
   "submittedVersion": 0,

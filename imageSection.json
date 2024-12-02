@@ -1,15 +1,5 @@
 {
-  "images": [
-    "iconWithBackground",
-    "logoWithoutBackground",
-    "logoWithBackground",
-    "iconWithoutBackground"
-  ],
-  "authorName": "Domo, Inc.",
-  "validImages": [
-    "iconWithBackground",
-    "logoWithBackground",
-    "iconWithoutBackground",
-    "logoWithoutBackground"
-  ]
+  "images": [],
+  "authorName": "test",
+  "validImages": []
 }
