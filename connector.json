@@ -75,9 +75,9 @@
   "repository": null,
   "visible": true,
   "validImages": [
-    "logoWithoutBackground",
-    "iconWithoutBackground",
     "iconWithBackground",
-    "logoWithBackground"
+    "logoWithBackground",
+    "iconWithoutBackground",
+    "logoWithoutBackground"
   ]
 }
